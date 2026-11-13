@@ -1,0 +1,64 @@
+services:
+  administration-postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: administration_service
+      POSTGRES_USER: administration_service
+      POSTGRES_PASSWORD: administration123
+    ports:
+      - "5436:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U administration_service -d administration_service"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - administration-data:/var/lib/postgresql/data
+
+  administration-postgres-test:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: administration_service_test
+      POSTGRES_USER: administration_service
+      POSTGRES_PASSWORD: administration_test123
+    ports:
+      - "5437:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U administration_service -d administration_service_test"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  security-postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: security_service
+      POSTGRES_USER: security_service
+      POSTGRES_PASSWORD: security123
+    ports:
+      - "5438:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U security_service -d security_service"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - security-data:/var/lib/postgresql/data
+
+  security-postgres-test:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: security_service_test
+      POSTGRES_USER: security_service
+      POSTGRES_PASSWORD: security_test123
+    ports:
+      - "5439:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U security_service -d security_service_test"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  administration-data:
+  security-data:
