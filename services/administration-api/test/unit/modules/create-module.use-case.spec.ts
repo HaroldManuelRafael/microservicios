@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CreateModuleUseCase } from "../../../src/application/modules/create-module.use-case.js";
-import { InMemoryModuleRepository } from "../../helpers/in-memory.repositories.js";
+import { InMemoryModuleRepository } from "../../../src/helpers/in-memory.repositories.js";
 
 describe("CreateModuleUseCase", () => {
   it("persistencia y retorno de un nuevo modulo", async () => {
