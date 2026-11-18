@@ -7,7 +7,8 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "runArgs": ["--add-host=host.docker.internal:host-gateway"],
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "remoteUser": "node",
   "customizations": {
     "vscode": {
