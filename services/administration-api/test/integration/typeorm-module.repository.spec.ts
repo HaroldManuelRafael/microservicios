@@ -2,8 +2,8 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import { DataSource } from "typeorm";
 import { Module } from "../../src/domain/modules/module.js";
 import { ModuleOrmEntity } from "../../src/infrastructure/persistence/typeorm/entities/module.orm-entity.js";
-import { CreateModules176300000000 } from "../../src/infrastructure/persistence/typeorm/migrations/176300000000-create-modules.js";
 import { TypeOrmModuleRepository } from "../../src/infrastructure/persistence/typeorm/repositories/typeorm-module.repository.js";
+import { CreateModules1795141201889 } from "../../src/infrastructure/persistence/typeorm/migrations/1795141201889-CreateModules.js";
 
 const url =
   process.env.TEST_DATABASE_URL ??
@@ -13,7 +13,7 @@ const dataSource = new DataSource({
   type: "postgres",
   url,
   entities: [ModuleOrmEntity],
-  migrations: [CreateModules176300000000],
+  migrations: [CreateModules1795141201889],
   dropSchema: true,
   synchronize: false,
 });

@@ -1,6 +1,7 @@
 import { Module } from "../../domain/modules/module.js";
 import type { ModuleRepository } from "../../domain/modules/module-repository.js";
 import { AplicationError } from "../shared/application-error.js";
+import { moduleView } from "./module-views.js";
 
 export class CreateModuleUseCase {
   constructor(private readonly modules: ModuleRepository) {}
@@ -20,16 +21,6 @@ export class CreateModuleUseCase {
       description: input.descripcion ?? null,
     });
 
-    return this.toView(await this.modules.save(module));
-  }
-
-  private toView(module: Module) {
-    return {
-      id: module.id,
-      nombre: module.name,
-      icono: module.icon,
-      descripcion: module.description,
-      activo: module.isActive,
-    };
+    return moduleView(await this.modules.save(module));
   }
 }

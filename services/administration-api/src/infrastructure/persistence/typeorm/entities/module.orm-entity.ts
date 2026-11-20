@@ -11,7 +11,7 @@ export class ModuleOrmEntity {
   @Column({ name: "icon", type: "varchar", length: 80, nullable: true })
   icon!: string | null;
 
-  @Column({ name: "Description", type: "varchar", length: 255, nullable: true })
+  @Column({ name: "description", type: "varchar", length: 255, nullable: true })
   description!: string | null;
 
   @Column({ name: "is_active", type: "boolean", default: true })
