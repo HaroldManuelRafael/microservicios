@@ -37,6 +37,8 @@ describe("CatlogUseCases", () => {
       (await catalogs.update(mod.id, { ...input, nombre: "Operacion" })).id,
     ).toBe(mod.id);
 
+    await expect(catalogs.removeMenu(mod.id, menu.id)).resolves.toBeUndefined();
+
     await expect(catalogs.removeMenu(mod.id, menu.id)).rejects.toMatchObject({
       statusCode: 404,
     });

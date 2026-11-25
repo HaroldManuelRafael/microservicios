@@ -1,3 +1,9 @@
 import "reflect-metadata";
 import { config } from "dotenv";
-config({ path: ".env.test" });
+import { fileURLToPath } from "node:url";
+
+config({
+  path: fileURLToPath(
+    new URL("../.env.test", import.meta.url),
+  ),
+});
