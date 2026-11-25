@@ -26,9 +26,7 @@ export class InMemoryModuleRepository implements ModuleRepository {
       isActive: module.isActive,
     });
 
-    const index = this.items.findIndex(
-      (item) => item.id === saved.id,
-    );
+    const index = this.items.findIndex((item) => item.id === saved.id);
 
     if (index >= 0) {
       this.items[index] = saved;
@@ -37,5 +35,12 @@ export class InMemoryModuleRepository implements ModuleRepository {
     }
 
     return saved;
+  }
+
+  async deleteById(id: number): Promise<boolean> {
+    const index = this.items.findIndex((item) => item.id === id);
+    if (index < 0) return false;
+    this.items.splice(index, 1);
+    return true;
   }
 }

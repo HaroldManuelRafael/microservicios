@@ -5,4 +5,5 @@ export interface ModuleRepository {
   findById(id: number): Promise<Module | null>;
   findAll(): Promise<Module[]>;
   save(module: Module): Promise<Module>;
+  deleteById(id: number): Promise<boolean>;
 }

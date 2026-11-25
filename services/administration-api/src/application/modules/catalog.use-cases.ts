@@ -74,4 +74,19 @@ export class CatalogUseCases {
     const menus = (await this.menus.findAll()).filter((m) => m.moduleId === id);
     return moduleView(saved, menus.map(menuView));
   }
+
+  async remove(id: number) {
+    if (!(await this.modules.deleteById(id))) throw missing();
+  }
+
+  async addMenu(id: number, input: { nombre: string; ruta: string }) {
+    if (!(await this.modules.findById(id))) throw missing();
+
+    const value = menuData(input.nombre, input.ruta);
+    return menuView(await this.menus.create(id, value.name, value.route));
+  }
+
+  async removeMenu(id: number, menuId: number) {
+    if (!(await this.menus.delete(id, menuId))) throw missing();
+  }
 }
