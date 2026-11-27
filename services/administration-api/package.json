@@ -11,7 +11,8 @@
     "test:unit": "vitest run test/unit",
     "test:http": "vitest run test/http",
     "test:integration": "vitest run --no-file-parallelism test/integration",
-    "migration:run": "tsx src/main/run-migration.ts"
+    "migration:run": "tsx src/main/run-migration.ts",
+    "migration:show": "tsx src/main/show-migrations.ts"
   },
   "devDependencies": {
     "@types/express": "^5.0.5",
