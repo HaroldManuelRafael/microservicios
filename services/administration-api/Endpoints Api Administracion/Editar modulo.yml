@@ -1,0 +1,23 @@
+info:
+  name: Editar modulo
+  type: http
+
+http:
+  method: PUT
+  url: http://127.0.0.1:3010/api/administracion/modulos/2
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Seguridad maxima",
+        "icono": "fa-seguridad",
+        "description": "Corregir descripcion"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true
