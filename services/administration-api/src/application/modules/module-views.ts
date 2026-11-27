@@ -6,7 +6,7 @@ export function moduleView(module: Module, menus: MenuView[] = []) {
     id: module.id!,
     nombre: module.name,
     icono: module.icon ?? "",
-    descripcion: module.description ?? "",
+    description: module.description ?? "",
     activo: module.isActive,
     menus,
   };

@@ -4,7 +4,7 @@ export const modulesSchema = z
   .object({
     nombre: z.string().trim().min(3).max(80),
     icono: z.string().trim().max(40),
-    descripcion: z.string().trim().max(200),
+    description: z.string().trim().max(200),
   })
   .strict();
 

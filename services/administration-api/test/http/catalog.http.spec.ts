@@ -21,7 +21,7 @@ function app() {
   api.use(express.json());
   api.use(
     "/api/administracion",
-    createCatalogRouter(catalog, () => (_q, _s, _n) => n()),
+    createCatalogRouter(catalog, () => (_q, _s, n) => n()),
   );
   api.use(errorHandler);
   return api;
@@ -30,7 +30,7 @@ function app() {
 describe("Administracion HTTP", () => {
   it("Crea un modulo segun DTO de angular", async () => {
     const api = app();
-    const body = { nombre: "Administracion", icono: "", descripcion: "" };
+    const body = { nombre: "Administracion", icono: "", description: "" };
     const result = await request(api)
       .post("/api/administracion/modulos")
       .send(body);
